@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
         <div className="px-3 py-5 text-sm text-gray-600 text-center sm:text-left">
           Copyright <sup>&copy;</sup> {new Date().getFullYear()}{" "}
-          <a href="https://hadinalmusri.com/" className="text-green-600">
+          <a href="/" className="text-green-600">
             hadin al-musri&apos;
           </a>
         </div>

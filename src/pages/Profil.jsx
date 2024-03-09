@@ -51,7 +51,7 @@ const Profil = () => {
     <div key={i} className="">
       <button
         onClick={(e) => handleSelected(e, i)}
-        className={`$ flex bg-gray-100 hover:bg-green-200 w-full p-2 items-center justify-between border-b border-green-700 rounded overflow-hidden ${
+        className={`bg-gray-100 hover:bg-green-200 w-full text-left block p-2  border-b border-green-700 rounded overflow-hidden ${
           selected === i ? "text-green-700" : ""
         }`}
       >
