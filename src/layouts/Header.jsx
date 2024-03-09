@@ -1,26 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Logo } from "../components/Components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Socials from "../components/Socials";
 
-const menus = [
-  { to: "/", text: "beranda" },
-  { to: "/profil", text: "profil" },
-  { to: "/tim-redaksi", text: "tim redaksi" },
-  { to: "/info-iklan", text: "info iklan" },
-  { to: "/kontak", text: "kontak" },
-  { to: "/karir", text: "karir" },
-];
+const menus = ["beranda", "profil", "tim redaksi", "info iklan", "kontak", "karir"];
 
 const Header = () => {
+  const location = useLocation();
+  const pathArr = location.pathname.split("/");
   const [active, setActive] = useState(null);
   const [openNav, setOpenNav] = useState(false);
 
-  const clickNav = (dt) => {
-    setActive(dt);
+  const clickNav = (data) => {
+    setActive(data);
     setOpenNav(false);
   };
+
+  useEffect(() => {
+    if (pathArr[1] == "") pathArr[1] = "beranda";
+    setActive(pathArr[1].split("-").join(" "));
+  }, [pathArr]);
 
   return (
     <header
@@ -40,16 +40,16 @@ const Header = () => {
           }  overflow-hidden fixed bg-white md:bg-transparent md:block md:static top-16 left-0 right-0 md:p-0 rounded-b-lg md:rounded-none transition-all duration-200`}
         >
           <div className="flex flex-col md:flex-row gap-0 md:gap-3 lg:gap-4">
-            {menus.map((m) => (
+            {menus.map((m, i) => (
               <NavLink
-                key={m.text}
-                to={m.to}
-                onClick={() => clickNav(m.text)}
+                key={i}
+                to={m == "beranda" ? "/" : `/${m.split(" ").join("-")}`}
+                onClick={() => clickNav(m)}
                 className={`${
-                  active === m.text ? "text-green-600" : "text-gray-600"
+                  active === m ? "text-green-600" : "text-gray-600"
                 } hover:text-green-600 capitalize font-medium transition-all duration-150 border-b md:border-none block md:w-max p-2 md:p-0`}
               >
-                {m.text}
+                {m}
               </NavLink>
             ))}
           </div>

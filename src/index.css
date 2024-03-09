@@ -17,3 +17,13 @@ html {
 #imgGaleri a {
   @apply overflow-hidden;
 }
+#timRedaksi table tr {
+  @apply odd:bg-green-100;
+}
+#timRedaksi table tr th {
+  @apply border rounded text-left p-3 font-medium;
+}
+
+#timRedaksi table tr td {
+  @apply border rounded p-2;
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { H2 } from "./Tags";
 
 export const Logo = ({ className }) => {
   return (
@@ -12,15 +13,25 @@ export const Logo = ({ className }) => {
 };
 Logo.propTypes;
 
-export const ListTitles = ({ title, children, className }) => {
+export const ListTitles = ({ title, children, className = "pl-4" }) => {
   return (
     <li id={title.split(" ").join("-")} className="pt-1 scroll-mt-16">
       <span className="font-medium">{title}</span>
-      <ol className={`${className} list-[lower-alpha] pl-4`}>{children}</ol>
+      <ol className={`${className} list-[lower-alpha]`}>{children}</ol>
     </li>
   );
 };
 ListTitles.propTypes;
+
+export const ListTitlesPar = ({ title, children, className }) => {
+  return (
+    <div id={title.split(" ").join("-")} className={`${className} pt-1 scroll-mt-16`}>
+      <H2>{title}</H2>
+      {children}
+    </div>
+  );
+};
+ListTitlesPar.propTypes;
 
 export const ContentSideList = ({ listTitles }) => {
   const [active, setActive] = useState(null);

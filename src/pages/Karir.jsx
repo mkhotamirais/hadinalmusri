@@ -1,9 +1,10 @@
+import { H1 } from "../components/Tags";
+
 const Karir = () => {
   return (
-    <div className="border w-full h-20 relative bg-white">
-      <div>Karir</div>
-      <div className="absolute right-0 text-red-500 -z-50">halo</div>
-    </div>
+    <section>
+      <H1>Karir</H1>
+    </section>
   );
 };
 

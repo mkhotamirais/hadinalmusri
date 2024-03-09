@@ -1,8 +1,10 @@
+import { H1 } from "../components/Tags";
+
 const Kontak = () => {
   return (
-    <div style={{ zIndex: "-999" }} className="bg-red-500">
-      Kontak
-    </div>
+    <section>
+      <H1>Kontak</H1>
+    </section>
   );
 };
 

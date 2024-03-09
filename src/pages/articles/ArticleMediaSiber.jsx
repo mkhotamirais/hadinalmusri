@@ -205,7 +205,7 @@ const ArticleMediaSiber = () => {
                 key={i}
                 title={lt.title}
                 className={`${
-                  lt.title == "Hak cipta" || lt.title == "Pencantuman pedoman" || lt.title == "Sengketa" ? "pl-0" : ""
+                  lt.title == "Hak cipta" || lt.title == "Pencantuman pedoman" || lt.title == "Sengketa" ? "pl-0" : "pl-4"
                 }`}
               >
                 {lt.content}
