@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+footer .links a {
+  @apply text-sm leading-relaxed hover:underline hover:text-emerald-700 text-gray-500;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+#imgGaleri img {
+  @apply aspect-square object-cover object-center hover:scale-110 transition-all duration-100;
+}
+
+#imgGaleri a {
+  @apply overflow-hidden;
+}
