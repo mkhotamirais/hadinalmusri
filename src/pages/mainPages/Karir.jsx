@@ -1,10 +1,10 @@
-import { H1 } from "../components/Tags";
+import { H1, Section } from "../../components/Tags";
 
 const Karir = () => {
   return (
-    <section>
+    <Section>
       <H1>Karir</H1>
-    </section>
+    </Section>
   );
 };
 

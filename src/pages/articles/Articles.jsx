@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { H1 } from "../../components/Tags";
+import { H1, Section } from "../../components/Tags";
 
 const Articles = () => {
   return (
-    <section>
+    <Section>
       <H1 className={"mb-4"}>Articles</H1>
       <div>
         <Outlet />
       </div>
-    </section>
+    </Section>
   );
 };
 

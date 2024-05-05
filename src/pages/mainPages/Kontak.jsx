@@ -1,10 +1,10 @@
-import { H1 } from "../components/Tags";
+import { H1, Section } from "../../components/Tags";
 
 const Kontak = () => {
   return (
-    <section>
+    <Section>
       <H1>Kontak</H1>
-    </section>
+    </Section>
   );
 };
 

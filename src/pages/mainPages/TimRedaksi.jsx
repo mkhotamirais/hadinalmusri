@@ -1,5 +1,5 @@
-import { ContentSideList, ListTitlesPar } from "../components/Components";
-import { H1 } from "../components/Tags";
+import { ContentSideList, ListTitlesPar } from "../../components/Components";
+import { H1, Section } from "../../components/Tags";
 
 const TimRedaksi = () => {
   const timRedaksiContent = (
@@ -63,11 +63,11 @@ const TimRedaksi = () => {
     { title: "Tim Perusahaan dan Iklan", content: timPerusahaanIklanContent },
   ];
   return (
-    <section id="timRedaksi">
+    <Section id="timRedaksi">
       <H1>Tim Redaksi</H1>
       <article className="grid grid-rows md:grid-cols-4 xl:grid-cols-5 sm:items-start gap-3">
         <ContentSideList listTitles={listTitles} />
-        <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1 text-gray-700">
+        <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1">
           {listTitles.map((lt, i) => (
             <ListTitlesPar key={i} title={lt.title}>
               {lt.content}
@@ -75,7 +75,7 @@ const TimRedaksi = () => {
           ))}
         </div>
       </article>
-    </section>
+    </Section>
   );
 };
 

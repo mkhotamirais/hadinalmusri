@@ -1,5 +1,5 @@
 import Carousel from "../components/Carousel";
-import { H1, H2, P } from "../components/Tags";
+import { H1, H2, P, Section } from "../components/Tags";
 import slider2 from "../assets/images/slider2.jpg";
 import hadin1 from "../assets/images/hadin1.jpg";
 import hadin2 from "../assets/images/hadin2.jpg";
@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
 
 const Hadins = [hadin1, hadin2, hadin3, hadin4, hadin5, hadin6];
 
-const Beranda = () => {
+const Home = () => {
   return (
-    <section id="beranda">
+    <Section id="beranda">
       <Carousel />
       {/* tentang kami */}
       <div className="min-h-[calc(50vh)] my-8">
@@ -22,7 +22,7 @@ const Beranda = () => {
           <div className="rounded-md w-full h-full flex-1 border p-1">
             <img src={slider2} alt="" />
           </div>
-          <div className="w-full h-full flex-1 text-gray-600">
+          <div className="w-full h-full flex-1">
             <p className="indent-8 mb-3 text-sm sm:text-base">
               Media Center Hadin Al Musri hadir dalam berbagai platform digital, untuk menegaskan eksistensi Yayasan Hadin Al
               Musri Katomas Subang sebagai salah satu Pusat Dakwah Islam di Pagaden Subang. Media Center Hadin Al Musri
@@ -43,8 +43,8 @@ const Beranda = () => {
         <H1 className={"mb-8 sm:mb-12"}>Galeri</H1>
         <div id="imgGaleri" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2">
           {Hadins.map((h, i) => (
-            <a target="_blank" rel="noopener noreferrer" key={i} href={h}>
-              <img src={h} alt={h} />
+            <a target="_blank" rel="noopener noreferrer" key={i} href={h} className="rounded-lg overflow-hidden">
+              <img src={h} alt={h} className="" />
             </a>
           ))}
         </div>
@@ -68,8 +68,8 @@ const Beranda = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
-export default Beranda;
+export default Home;

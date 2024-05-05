@@ -1,22 +1,9 @@
 import { useState } from "react";
-import { ContentSideList, ListTitlesPar } from "../components/Components";
-import { H1, P } from "../components/Tags";
+import { ContentSideList, ListTitlesPar } from "../../components/Components";
+import { H1, P, Section } from "../../components/Tags";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 
 const Profil = () => {
-  const [selected, setSelected] = useState(null);
-
-  const handleSelected = (e, i) => {
-    let target = e.target.nextElementSibling;
-    target.classList.toggle("buka");
-    if (target.classList.contains("buka")) {
-      setSelected(i);
-      target.style.height = target.scrollHeight + "px";
-    } else {
-      setSelected(null);
-      target.style.height = 0;
-    }
-  };
-
   const dataTigaPilar = [
     {
       title: "Media pendidikan inklusif",
@@ -47,32 +34,19 @@ const Profil = () => {
     </P>
   );
 
-  const TigaPilarContent = dataTigaPilar.map((item, i) => (
-    <div key={i} className="">
-      <button
-        onClick={(e) => handleSelected(e, i)}
-        className={`bg-gray-100 hover:bg-green-200 w-full text-left block p-2  border-b border-green-700 rounded overflow-hidden ${
-          selected === i ? "text-green-700" : ""
-        }`}
-      >
-        {item.title}
-      </button>
-      <p className={`h-0 overflow-hidden transition-all duration-200`}>
-        <span className="block leading-relaxed mb-0 m-0 p-3 bg-green-100 text-sm sm:text-base">{item.content}</span>
-      </p>
-    </div>
-  ));
+  const TigaPilarContent = dataTigaPilar.map((item, i) => <TigaPilarContentList key={i} item={item} />);
+
   const listTitles = [
     { title: "Tentang kami", content: TentangKamiContent },
     { title: "Tiga pilar Media Center Hadin Al-Musri' Katomas Pagaden Subang", content: TigaPilarContent },
   ];
 
   return (
-    <section>
+    <Section>
       <H1>Profil</H1>
       <article className="grid grid-rows md:grid-cols-4 xl:grid-cols-5 sm:items-start gap-3">
         <ContentSideList listTitles={listTitles} />
-        <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1 text-gray-700">
+        <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1">
           {listTitles.map((lt, i) => (
             <ListTitlesPar key={i} title={lt.title}>
               {lt.content}
@@ -80,8 +54,39 @@ const Profil = () => {
           ))}
         </div>
       </article>
-    </section>
+    </Section>
   );
 };
 
 export default Profil;
+
+const TigaPilarContentList = ({ item }) => {
+  const [selected, setSelected] = useState(false);
+
+  const handleSelected = (e) => {
+    let target = e.target.nextElementSibling;
+    target.classList.toggle("buka");
+    if (target.classList.contains("buka")) {
+      setSelected(true);
+      target.style.height = target.scrollHeight + "px";
+    } else {
+      setSelected(false);
+      target.style.height = 0;
+    }
+  };
+  return (
+    <div className="">
+      <button
+        onClick={(e) => handleSelected(e)}
+        className={`hover:text-green-500 w-full text-left p-2 border-b border-green-700 rounded overflow-hidden flex justify-between items-center`}
+      >
+        {item.title}
+        <span className="text-sm">{selected ? <FaMinus /> : <FaPlus />}</span>
+      </button>
+      <p className={`h-0 overflow-hidden transition-all duration-200`}>
+        <span className="block leading-relaxed mb-0 m-0 p-3 text-sm sm:text-base">{item.content}</span>
+      </p>
+    </div>
+  );
+};
+TigaPilarContentList.propTypes;

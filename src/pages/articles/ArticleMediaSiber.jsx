@@ -185,7 +185,7 @@ const ArticleMediaSiber = () => {
   return (
     <article className="grid grid-rows md:grid-cols-4 xl:grid-cols-5 sm:items-start gap-3">
       <ContentSideList listTitles={listTitles} />
-      <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1 text-gray-700">
+      <div className="md:col-span-3 xl:col-span-4 order-2 md:order-1">
         <H2>Pedoman Media Siber</H2>
         <P className={"indent-7"}>
           Kemerdekaan berpendapat, kemerdekaan berekspresi, dan kemerdekaan pers adalah hak asasi manusia yang dilindungi

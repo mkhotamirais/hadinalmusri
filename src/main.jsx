@@ -2,20 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import Layout from "./layouts/Layout.jsx";
-import Beranda from "./pages/Beranda.jsx";
-import InfoIklan from "./pages/InfoIklan";
-import Karir from "./pages/Karir";
-import Kontak from "./pages/Kontak";
-import Profil from "./pages/Profil";
-import TimRedaksi from "./pages/TimRedaksi";
+import { Provider } from "react-redux";
+import { store } from "./app/store.js";
+import App from "./App.jsx";
+import Home from "./pages/Home.jsx";
+import InfoIklan from "./pages/mainPages/InfoIklan.jsx";
+import Karir from "./pages/mainPages/Karir.jsx";
+import Kontak from "./pages/mainPages/Kontak.jsx";
+import Profil from "./pages/mainPages/Profil.jsx";
+import TimRedaksi from "./pages/mainPages/TimRedaksi.jsx";
 import Articles from "./pages/articles/Articles.jsx";
 import ArticleMediaSiber from "./pages/articles/ArticleMediaSiber.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Beranda />} />
+    <Route path="/" element={<App />}>
+      <Route index element={<Home />} />
       <Route path="/info-iklan" element={<InfoIklan />} />
       <Route path="/karir" element={<Karir />} />
       <Route path="/kontak" element={<Kontak />} />
@@ -30,6 +32,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

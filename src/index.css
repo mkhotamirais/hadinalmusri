@@ -18,7 +18,7 @@ html {
   @apply overflow-hidden;
 }
 #timRedaksi table tr {
-  @apply odd:bg-green-100;
+  @apply odd:bg-green-100 odd:text-slate-700;
 }
 #timRedaksi table tr th {
   @apply border rounded text-left p-3 font-medium;
