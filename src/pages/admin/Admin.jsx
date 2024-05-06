@@ -1,5 +1,13 @@
+import AdmProduct from "./product/AdmProduct";
+import { Toaster } from "react-hot-toast";
+
 const Admin = () => {
-  return <div>Admin</div>;
+  return (
+    <div>
+      <AdmProduct />
+      <Toaster />
+    </div>
+  );
 };
 
 export default Admin;

@@ -13,20 +13,24 @@ import Profil from "./pages/mainPages/Profil.jsx";
 import TimRedaksi from "./pages/mainPages/TimRedaksi.jsx";
 import Articles from "./pages/articles/Articles.jsx";
 import ArticleMediaSiber from "./pages/articles/ArticleMediaSiber.jsx";
+import Admin from "./pages/admin/Admin.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index element={<Home />} />
-      <Route path="/info-iklan" element={<InfoIklan />} />
-      <Route path="/karir" element={<Karir />} />
-      <Route path="/kontak" element={<Kontak />} />
-      <Route path="/profil" element={<Profil />} />
-      <Route path="/tim-redaksi" element={<TimRedaksi />} />
-      <Route path="/articles" element={<Articles />}>
-        <Route path="pedoman-media-siber" element={<ArticleMediaSiber />} />
+    <>
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
+        <Route path="/info-iklan" element={<InfoIklan />} />
+        <Route path="/karir" element={<Karir />} />
+        <Route path="/kontak" element={<Kontak />} />
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/tim-redaksi" element={<TimRedaksi />} />
+        <Route path="/articles" element={<Articles />}>
+          <Route path="pedoman-media-siber" element={<ArticleMediaSiber />} />
+        </Route>
       </Route>
-    </Route>
+      <Route path="/admin" element={<Admin />} />
+    </>
   )
 );
 
